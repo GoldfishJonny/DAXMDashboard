@@ -1,7 +1,20 @@
 {
   "dependencies": {
+    "body-parser": "^2.0.2",
     "dotenv": "^16.4.5",
-    "express": "^4.21.0",
-    "mongodb": "^6.9.0"
+    "mongodb": "^6.9.0",
+    "mongoose": "^8.8.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.9.0",
+    "express": "^5.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  },
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "build": "tsc",
+    "dev": "ts-node-dev src/index.ts"
   }
 }
