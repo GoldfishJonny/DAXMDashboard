@@ -13,7 +13,6 @@ app.use(bodyParser.json());
 
 app.use('/api/inventory', inventoryRouter);
 
-
 app.get('/', (req: Request, res: Response) => {
     res.send('Welcome to DAXM Detail Admin API');
   });
