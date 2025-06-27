@@ -14,9 +14,7 @@ services:
     environment:
       NODE_ENV: production
       PORT: 3250
-      POSTGRES_USER: daxm
-      POSTGRES_PASSWORD: dietcoke623
-      POSTGRES_DB: divers
+      DATABASE_URL: postgres://daxm:dietcoke623@db:5432/divers
     ports:
       - 3250:3250
 
@@ -32,18 +30,16 @@ services:
   db:
     image: postgres:17
     restart: always
-    secrets:
-      - db-password
     volumes:
       - db-data:/var/lib/postgresql/data
     environment:
       - POSTGRES_USER=daxm
       - POSTGRES_DB=divers
-      - POSTGRES_PASSWORD= dietcoke623
+      - POSTGRES_PASSWORD=dietcoke623
     expose:
       - 5432
     healthcheck:
-      test: [ "CMD", "pg_isready" ]
+      test: [ "CMD", "pg_isready" , "-U", "daxm", "-d", "divers" ]
       interval: 10s
       timeout: 5s
       retries: 5

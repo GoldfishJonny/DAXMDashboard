@@ -2,3 +2,5 @@ node_modules/*
 build/
 .env
 compose.yaml
+/src/generated/prisma
+db-data
